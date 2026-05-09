@@ -41,18 +41,23 @@
 ### Steps
 
 ```bash
-# Initialize repo
-repo init -u https://gitlab.com/OrangeFox/sync.git -b 12.1
-repo sync
+# 1. Sync OrangeFox sources
+mkdir ~/OrangeFox_sync
+cd ~/OrangeFox_sync
+git clone https://gitlab.com/OrangeFox/sync.git
+cd ~/OrangeFox_sync/sync/
+./orangefox_sync.sh --branch 12.1 --path ~/fox_12.1
 
-# Clone device tree
+# 2. Clone device tree
+cd ~/fox_12.1
 git clone https://github.com/qoij69/android_device_xiaomi_umi device/xiaomi/umi -b fox_12.1
 
-# Build
+# 3. Build
+export ALLOW_MISSING_DEPENDENCIES=true
 export FOX_BUILD_DEVICE=umi
+export LC_ALL="C"
 source build/envsetup.sh
-lunch twrp_umi-eng
-mka recoveryimage
+lunch twrp_umi-eng && mka adbd recoveryimage
 ```
 
 ## Download
