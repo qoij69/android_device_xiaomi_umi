@@ -18,6 +18,7 @@
 | Display | 6.67" AMOLED 1080x2340 |
 | Battery | 4780 mAh |
 | Supported MIUI | MIUI 12, 13, 14, HyperOS 1 |
+| Supported Android | 12 - 16 |
 
 ## Status
 
